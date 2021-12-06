@@ -18,7 +18,7 @@ ClassMethod getArray(path, ByRef inputArr)
     set stream = ##class(%Stream.FileCharacter).%New()
     set sc = stream.LinkToFile(fn)
 	while 'stream.AtEnd {
-        Set a = inputArr.SetAt(stream.ReadLine(), $Increment(i) - 1)
+        Set a = inputArr.SetAt($TR(stream.ReadLine(),$C(13)), $Increment(i) - 1)
     }
     return inputArr
 }
